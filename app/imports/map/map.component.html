@@ -220,8 +220,32 @@
       </div>
       <!-- Map -->
       <div class="map-container full-width full-height">
-        <div id="google-map" class="full-width full-height"></div>
+        <sebm-google-map class="full-width full-height"
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+          [zoomControl]="false"
+          (mapClick)="mapClicked($event)">
+
+          <sebm-google-map-marker
+              *ngFor="let m of markers; let i = index"
+              (markerClick)="clickedMarker(m.label, i)"
+              [latitude]="m.lat"
+              [longitude]="m.lng"
+              [label]="m.label"
+              [markerDraggable]="m.draggable"
+              (dragEnd)="markerDragEnd(m, $event)">
+
+            <sebm-google-map-info-window>
+              <strong>InfoWindow content</strong>
+            </sebm-google-map-info-window>
+
+          </sebm-google-map-marker>
+
+        </sebm-google-map>
       </div>
+      <!-- <div #googlemap class="full-width full-height"></div> -->
       <!-- END CONTENT INNER -->
     </div>
     <!-- END PAGE CONTENT -->

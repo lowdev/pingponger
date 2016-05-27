@@ -1,143 +1,70 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  MapsAPILoader,
+  NoOpMapsAPILoader,
+  MouseEvent,
+  ANGULAR2_GOOGLE_MAPS_PROVIDERS,
+  ANGULAR2_GOOGLE_MAPS_DIRECTIVES
+} from 'angular2-google-maps/core';
 
 declare var google: any;
 
 @Component({
   selector: 'map',
+  directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
   templateUrl: 'app/imports/map/map.component.html'
 })
 export class MapComponent {
-  zoomLevel: Number;
-  map: any;
+  // google maps zoom level
+  zoom: number = 8;
 
-  constructor() {
-    this.zoomLevel = 11;
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: this.zoomLevel,
-        disableDefaultUI: true,
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+  // initial center position for the map
+  lat: number = 51.673858;
+  lng: number = 7.815982;
 
-        // Map styling
-        styles: [{
-            featureType: 'water',
-            elementType: 'all',
-            stylers: [{
-                hue: '#e9ebed'
-            }, {
-                saturation: -78
-            }, {
-                lightness: 67
-            }, {
-                visibility: 'simplified'
-            }]
-        }, {
-            featureType: 'landscape',
-            elementType: 'all',
-            stylers: [{
-                hue: '#ffffff'
-            }, {
-                saturation: -100
-            }, {
-                lightness: 100
-            }, {
-                visibility: 'simplified'
-            }]
-        }, {
-            featureType: 'road',
-            elementType: 'geometry',
-            stylers: [{
-                hue: '#bbc0c4'
-            }, {
-                saturation: -93
-            }, {
-                lightness: 31
-            }, {
-                visibility: 'simplified'
-            }]
-        }, {
-            featureType: 'poi',
-            elementType: 'all',
-            stylers: [{
-                hue: '#ffffff'
-            }, {
-                saturation: -100
-            }, {
-                lightness: 100
-            }, {
-                visibility: 'off'
-            }]
-        }, {
-            featureType: 'road.local',
-            elementType: 'geometry',
-            stylers: [{
-                hue: '#e9ebed'
-            }, {
-                saturation: -90
-            }, {
-                lightness: -8
-            }, {
-                visibility: 'simplified'
-            }]
-        }, {
-            featureType: 'transit',
-            elementType: 'all',
-            stylers: [{
-                hue: '#e9ebed'
-            }, {
-                saturation: 10
-            }, {
-                lightness: 69
-            }, {
-                visibility: 'on'
-            }]
-        }, {
-            featureType: 'administrative.locality',
-            elementType: 'all',
-            stylers: [{
-                hue: '#2c2e33'
-            }, {
-                saturation: 7
-            }, {
-                lightness: 19
-            }, {
-                visibility: 'on'
-            }]
-        }, {
-            featureType: 'road',
-            elementType: 'labels',
-            stylers: [{
-                hue: '#bbc0c4'
-            }, {
-                saturation: -93
-            }, {
-                lightness: 31
-            }, {
-                visibility: 'on'
-            }]
-        }, {
-            featureType: 'road.arterial',
-            elementType: 'labels',
-            stylers: [{
-                hue: '#bbc0c4'
-            }, {
-                saturation: -93
-            }, {
-                lightness: -2
-            }, {
-                visibility: 'simplified'
-            }]
-        }]
-    };
-
-    // Get the HTML DOM element that will contain your map
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('google-map');
-
-    // Create the Google Map using out element and options defined above
-    this.map = new google.maps.Map(mapElement, mapOptions);
+  clickedMarker(label: string, index: number) {
+    console.log(`clicked the marker: ${label || index}`)
   }
+
+  mapClicked($event: MouseEvent) {
+    this.markers.push({
+      lat: 51.673858,
+		  lng: 7.815982,
+		  label: 'A',
+		  draggable: true
+    });
+  }
+
+  markerDragEnd(m: marker, $event: MouseEvent) {
+    console.log('dragEnd', m, $event);
+  }
+
+  markers: marker[] = [
+	  {
+		  lat: 51.673858,
+		  lng: 7.815982,
+		  label: 'A',
+		  draggable: true
+	  },
+	  {
+		  lat: 51.373858,
+		  lng: 7.215982,
+		  label: 'B',
+		  draggable: false
+	  },
+	  {
+		  lat: 51.723858,
+		  lng: 7.895982,
+		  label: 'C',
+		  draggable: true
+	  }
+  ]
+}
+
+// just an interface for type safety.
+interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
 }
