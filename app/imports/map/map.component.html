@@ -1,4 +1,16 @@
+<!-- START CONTENT INNER -->
+<div class="map-controls">
+  <div class="pull-left">
+    <div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
+      <button id="map-zoom-in" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>
+      </button>
+      <button id="map-zoom-out" class="btn btn-success btn-xs"><i class="fa fa-minus"></i>
+      </button>
+    </div>
+  </div>
+</div>
 <div class="map-container full-width full-height">
+  <!-- Map -->
   <sebm-google-map class="full-width full-height"
     [latitude]="lat"
     [longitude]="lng"
@@ -24,3 +36,4 @@
 
   </sebm-google-map>
 </div>
+<!-- END CONTENT INNER -->
