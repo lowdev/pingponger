@@ -1,39 +1,68 @@
-<!-- START CONTENT INNER -->
-<div class="map-controls">
-  <div class="pull-left">
-    <div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
-      <button id="map-zoom-in" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>
-      </button>
-      <button id="map-zoom-out" class="btn btn-success btn-xs"><i class="fa fa-minus"></i>
-      </button>
+<!-- START PAGE CONTENT WRAPPER -->
+<div class="page-content-wrapper full-height">
+  <!-- START PAGE CONTENT -->
+  <div class="content full-width full-height overlay-footer">
+  <!-- START CONTENT INNER -->
+  <div class="map-controls">
+    <div class="pull-left">
+      <div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
+        <button id="map-zoom-in" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>
+        </button>
+        <button id="map-zoom-out" class="btn btn-success btn-xs"><i class="fa fa-minus"></i>
+        </button>
+      </div>
     </div>
   </div>
+  <div class="map-container full-width full-height">
+    <!-- Map -->
+    <sebm-google-map class="full-width full-height"
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      (mapClick)="mapClicked($event)">
+
+      <sebm-google-map-marker
+          *ngFor="let m of markers; let i = index"
+          (markerClick)="clickedMarker(m.label, i)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+          [markerDraggable]="m.draggable"
+          (dragEnd)="markerDragEnd(m, $event)">
+
+        <sebm-google-map-info-window>
+          <strong>InfoWindow content</strong>
+        </sebm-google-map-info-window>
+
+      </sebm-google-map-marker>
+
+    </sebm-google-map>
+  </div>
+  <!-- END CONTENT INNER -->
 </div>
-<div class="map-container full-width full-height">
-  <!-- Map -->
-  <sebm-google-map class="full-width full-height"
-    [latitude]="lat"
-    [longitude]="lng"
-    [zoom]="zoom"
-    [disableDefaultUI]="false"
-    [zoomControl]="false"
-    (mapClick)="mapClicked($event)">
-
-    <sebm-google-map-marker
-        *ngFor="let m of markers; let i = index"
-        (markerClick)="clickedMarker(m.label, i)"
-        [latitude]="m.lat"
-        [longitude]="m.lng"
-        [label]="m.label"
-        [markerDraggable]="m.draggable"
-        (dragEnd)="markerDragEnd(m, $event)">
-
-      <sebm-google-map-info-window>
-        <strong>InfoWindow content</strong>
-      </sebm-google-map-info-window>
-
-    </sebm-google-map-marker>
-
-  </sebm-google-map>
+<!-- END PAGE CONTENT -->
+<!-- START COPYRIGHT -->
+<!-- START CONTAINER FLUID -->
+<div class="container-fluid container-fixed-lg pull-bottom hidden-xs">
+  <div class="copyright no-border">
+    <p class="small no-margin pull-left"><span class="hint-text">Copyright &copy; 2014</span>
+      <span class="font-montserrat">REVOX</span>.
+      <span class="hint-text">All rights reserved.</span>
+      <span>
+        <a class="m-l-10" href="#">Terms of use</a>
+        <a class="m-l-10" href="#">Privacy Policy</a>
+    </span>
+    </p>
+    <p class="small no-margin pull-right">
+      <a href="#"> Hand-crafted</a>
+      <span class="hint-text">&amp; Made with Love
+    &copy;</span>
+    </p>
+    <div class="clearfix"></div>
+  </div>
 </div>
-<!-- END CONTENT INNER -->
+<!-- END COPYRIGHT -->
+</div>
+<!-- END PAGE CONTENT WRAPPER -->
