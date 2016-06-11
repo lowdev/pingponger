@@ -6,9 +6,9 @@
   <div class="map-controls">
     <div class="pull-left">
       <div class="btn-group btn-group-vertical" data-toggle="buttons-radio">
-        <button id="map-zoom-in" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>
+        <button (click)="zoomIn()" id="map-zoom-in" class="btn btn-success btn-xs"><i class="fa fa-plus"></i>
         </button>
-        <button id="map-zoom-out" class="btn btn-success btn-xs"><i class="fa fa-minus"></i>
+        <button (click)="zoomOut()" id="map-zoom-out" class="btn btn-success btn-xs"><i class="fa fa-minus"></i>
         </button>
       </div>
     </div>
@@ -22,6 +22,8 @@
       [disableDefaultUI]="false"
       [zoomControl]="false"
       (mapClick)="mapClicked($event)">
+
+      <styled-map></styled-map>
 
       <sebm-google-map-marker
           *ngFor="let m of markers; let i = index"

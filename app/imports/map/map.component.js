@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var core_2 = require('angular2-google-maps/core');
+var styled_map_component_1 = require('./styled-map.component');
 var MapComponent = (function () {
     function MapComponent() {
         // google maps zoom level
@@ -38,6 +39,12 @@ var MapComponent = (function () {
             }
         ];
     }
+    MapComponent.prototype.zoomIn = function () {
+        this.zoom++;
+    };
+    MapComponent.prototype.zoomOut = function () {
+        this.zoom--;
+    };
     MapComponent.prototype.clickedMarker = function (label, index) {
         console.log("clicked the marker: " + (label || index));
     };
@@ -55,7 +62,7 @@ var MapComponent = (function () {
     MapComponent = __decorate([
         core_1.Component({
             selector: 'map',
-            directives: [core_2.ANGULAR2_GOOGLE_MAPS_DIRECTIVES],
+            directives: [core_2.ANGULAR2_GOOGLE_MAPS_DIRECTIVES, styled_map_component_1.StyledMap],
             templateUrl: 'app/imports/map/map.component.html'
         }), 
         __metadata('design:paramtypes', [])
