@@ -12,13 +12,16 @@ import { StyledMap } from './styled-map.component';
 import { Marker } from './marker';
 
 import { Table } from './model/Table';
+
 import { TableService } from './model/table.service';
+import { MarkerService } from './marker.service';
 
 declare var google: any;
 
 @Component({
   selector: 'map',
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, StyledMap],
+  providers: [MarkerService, TableService],
   templateUrl: 'app/imports/map/map.component.html'
 })
 export class MapComponent {
@@ -50,8 +53,8 @@ export class MapComponent {
 	  }
   ]
 
-  constructor(private tableService: TableService) {
-    
+  constructor(private markerService: MarkerService) {
+    markerService.getAllMarkers().then(markers => this.markers = markers);
   }
 
   zoomIn() {
