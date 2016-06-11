@@ -9,6 +9,7 @@ import {
 } from 'angular2-google-maps/core';
 
 import {StyledMap} from './styled-map.component';
+import {Marker} from './marker';
 
 declare var google: any;
 
@@ -25,7 +26,7 @@ export class MapComponent {
   lat: number = 51.673858;
   lng: number = 7.815982;
 
-  markers: marker[] = [
+  markers: Marker[] = [
 	  {
 		  lat: 51.673858,
 		  lng: 7.815982,
@@ -67,15 +68,7 @@ export class MapComponent {
     });
   }
 
-  markerDragEnd(m: marker, $event: MouseEvent) {
+  markerDragEnd(m: Marker, $event: MouseEvent) {
     console.log('dragEnd', m, $event);
   }
-}
-
-// just an interface for type safety.
-interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-	draggable: boolean;
 }
