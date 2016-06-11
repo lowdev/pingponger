@@ -16,6 +16,9 @@ var overlay_component_1 = require('./imports/overlay/overlay.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.ngAfterContentInit = function () {
+        $.Pages.init();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'ping-ponger-app',
