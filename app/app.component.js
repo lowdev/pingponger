@@ -13,6 +13,7 @@ var navigation_component_1 = require('./imports/navigation/navigation.component'
 var map_component_1 = require('./imports/map/map.component');
 var quickview_component_1 = require('./imports/quickview/quickview.component');
 var overlay_component_1 = require('./imports/overlay/overlay.component');
+var header_component_1 = require('./imports/header/header.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -23,7 +24,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'ping-ponger-app',
             templateUrl: './app/app.component.html',
-            directives: [navigation_component_1.NavigationComponent, map_component_1.MapComponent, quickview_component_1.QuickviewComponent, overlay_component_1.OverlayComponent]
+            directives: [navigation_component_1.NavigationComponent, map_component_1.MapComponent, quickview_component_1.QuickviewComponent,
+                overlay_component_1.OverlayComponent, header_component_1.HeaderComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
