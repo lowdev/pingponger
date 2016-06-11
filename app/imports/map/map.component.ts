@@ -8,8 +8,11 @@ import {
   GoogleMapsAPIWrapper, MarkerManager
 } from 'angular2-google-maps/core';
 
-import {StyledMap} from './styled-map.component';
-import {Marker} from './marker';
+import { StyledMap } from './styled-map.component';
+import { Marker } from './marker';
+
+import { Table } from './model/Table';
+import { TableService } from './model/table.service';
 
 declare var google: any;
 
@@ -46,6 +49,10 @@ export class MapComponent {
 		  draggable: true
 	  }
   ]
+
+  constructor(private tableService: TableService) {
+    
+  }
 
   zoomIn() {
     this.zoom++;
