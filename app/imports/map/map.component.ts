@@ -5,7 +5,7 @@ import {
   MouseEvent,
   ANGULAR2_GOOGLE_MAPS_PROVIDERS,
   ANGULAR2_GOOGLE_MAPS_DIRECTIVES,
-  GoogleMapsAPIWrapper, MarkerManager
+  MarkerManager
 } from 'angular2-google-maps/core';
 
 import { StyledMap } from './styled-map.component';
@@ -17,6 +17,7 @@ import { TableService } from './model/table.service';
 import { MarkerService } from './marker.service';
 
 declare var google: any;
+declare var MarkerClusterer: any;
 
 @Component({
   selector: 'map',
@@ -25,6 +26,9 @@ declare var google: any;
   templateUrl: 'app/imports/map/map.component.html'
 })
 export class MapComponent {
+  map: any;
+  markers: any[];
+
   // google maps zoom level
   zoom: number = 8;
 
@@ -32,29 +36,7 @@ export class MapComponent {
   lat: number = 51.673858;
   lng: number = 7.815982;
 
-  markers: Marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
-	  },
-	  {
-		  lat: 51.373858,
-		  lng: 7.215982,
-		  label: 'B',
-		  draggable: false
-	  },
-	  {
-		  lat: 51.723858,
-		  lng: 7.895982,
-		  label: 'C',
-		  draggable: true
-	  }
-  ]
-
   constructor(private markerService: MarkerService) {
-    markerService.getAllMarkers().then(markers => this.markers = markers);
   }
 
   zoomIn() {
@@ -80,5 +62,43 @@ export class MapComponent {
 
   markerDragEnd(m: Marker, $event: MouseEvent) {
     console.log('dragEnd', m, $event);
+  }
+
+  mapLoaded(m) {
+    console.log('map loaded!', m);
+
+    this.markerService.getAllMarkers(m).then(markers => {
+      //this.markers = markers;
+      //let mcOptions = {gridSize: 50, maxZoom: 15};
+
+      let path = "node_modules/js-marker-clusterer/images/m";
+      let extension = ".png";
+      let mcOptions = {styles: [{
+          height: 53,
+          url: path + "1" + extension,
+          width: 53
+        },
+        {
+          height: 56,
+          url: path + "2" + extension,
+          width: 56
+        },
+        {
+          height: 66,
+          url: path + "3" + extension,
+          width: 66
+        },
+        {
+          height: 78,
+          url: path + "4" + extension,
+          width: 78
+        },
+        {
+          height: 90,
+          url: path + "5" + extension,
+          width: 90
+      }]};
+      new MarkerClusterer(m, markers, mcOptions);
+    });
   }
 }

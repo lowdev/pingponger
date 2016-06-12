@@ -23,8 +23,9 @@
       [zoomControl]="false"
       (mapClick)="mapClicked($event)">
 
-      <styled-map></styled-map>
+      <styled-map (mapLoaded)="mapLoaded($event)"></styled-map>
 
+      <!--
       <sebm-google-map-marker
           *ngFor="let m of markers; let i = index"
           (markerClick)="clickedMarker(m.label, i)"
@@ -39,6 +40,7 @@
         </sebm-google-map-info-window>
 
       </sebm-google-map-marker>
+      -->
 
     </sebm-google-map>
   </div>

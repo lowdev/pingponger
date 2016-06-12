@@ -27,7 +27,8 @@
     "zone.js": "^0.6.12",
     "angular2-in-memory-web-api": "0.0.7",
     "bootstrap": "^3.3.6",
-    "gmaps": "0.4.24"
+    "gmaps": "0.4.24",
+    "js-marker-clusterer": "1.0.0"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",

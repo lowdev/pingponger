@@ -1,6 +1,8 @@
 import {
   Component,
-  Directive
+  Directive,
+  EventEmitter,
+  Output
 } from '@angular/core';
 
 import {
@@ -13,6 +15,8 @@ import {
   template: ''
 })
 export class StyledMap {
+  @Output() mapLoaded = new EventEmitter();
+
   constructor(private _wrapper: GoogleMapsAPIWrapper) {
     this._wrapper.getMap().then((m) => {
         var mapOptions = {
@@ -129,7 +133,8 @@ export class StyledMap {
                 }]
             }]
         };
-         m.setOptions(mapOptions);
-       });
+        m.setOptions(mapOptions);
+        this.mapLoaded.emit(m);
+      });
   }
 }

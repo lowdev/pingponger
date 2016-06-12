@@ -2,26 +2,27 @@ import  { Injectable } from '@angular/core';
 
 import { TableService } from './model/table.service';
 import { Table } from './model/table';
-import { Marker } from './marker';
+
+declare var google: any;
 
 @Injectable()
 export class MarkerService {
    constructor(private tableService: TableService) {}
 
-   public getAllMarkers(): Promise<Marker[]> {
-     let markers: Marker[];
-     this.tableService.findAll().then(tables => markers = this.toMarkers(tables));
-
-     return Promise.resolve(markers);
+   public getAllMarkers(googleMap: any): Promise<any[]> {
+     return this.tableService.findAll().then(tables => {
+       return this.toMarkers(tables, googleMap);
+     });
    }
 
-   private toMarkers(tables: Table[]): Marker[] {
-     return tables.map(this.toMarker);
+   private toMarkers(tables: Table[], googleMap: any): any[] {
+     return tables.map(table => this.toMarker(table, googleMap));
    }
 
-   private toMarker(table: Table): Marker {
-     let marker: Marker = new Marker();
-
-     return marker;
+   private toMarker(table: Table, googleMap: any): any {
+     return new google.maps.Marker({
+       position: { lat: table.lat, lng: table.lng },
+       map: googleMap
+     });
    }
 }
