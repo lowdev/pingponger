@@ -21,6 +21,7 @@ export class MarkerService {
 
    private toMarker(table: Table, googleMap: any): any {
      return new google.maps.Marker({
+       title: table.name,
        position: { lat: table.lat, lng: table.lng },
        map: googleMap
      });
