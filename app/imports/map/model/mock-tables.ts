@@ -13,5 +13,9 @@ export var TABLE: Table[] = [
   { lat: 48.850033, lng: 2.312919, name: "", address: "40 Avenue Duquesne, 75007 Paris" },
   { lat: 48.875939, lng: 2.320600, name: "Square Marcel Pagnol", address: "Square Marcel Pagnol, 75008 Paris" },
   { lat: 48.876701, lng: 2.331649, name: "", address: "2 rue de la trinité, 75009 Paris" },
-  { lat: 448.877079, lng: 2.346531, name: "Square Montholon", address: "Rue de Montholon, 75009 Paris" }
+  { lat: 448.877079, lng: 2.346531, name: "Square Montholon", address: "Rue de Montholon, 75009 Paris" },
+  { lat: 48.877516, lng: 2.368299, name: "Square Amadou Hampaté-Bâ", address: "19, rue Boy Zelenski, 75010 Paris" },
+  { lat: 48.877693, lng: 2.365496, name: "Square Eugène Varlin", address: "3e et 4e écluses du Canal St Martin, 75010 Paris" },
+  { lat: 48.873560, lng: 2.363595, name: "Square des Récollets", address: "5e et 6e écluses du Canal St Martin, 75010 Paris" },
+  { lat: 448.877079, lng: 2.346531, name: "Jardin Valmy-Terrage", address: "131 Quai de Valmy, 75010 Paris" }
 ];
