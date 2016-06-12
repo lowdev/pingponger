@@ -20,10 +20,20 @@ export class MarkerService {
    }
 
    private toMarker(table: Table, googleMap: any): any {
-     return new google.maps.Marker({
+     let marker = new google.maps.Marker({
        title: table.name,
        position: { lat: table.lat, lng: table.lng },
        map: googleMap
      });
+
+     var infowindow = new google.maps.InfoWindow({
+       content: '<h4>' +  table.name + '</h4><p>' + table.address + '</p>'
+     });
+
+     marker.addListener('click', function() {
+       infowindow.open(googleMap, marker);
+     });
+
+     return marker;
    }
 }
