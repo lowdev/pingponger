@@ -31,11 +31,11 @@ export class MapComponent {
   markers: any[];
 
   // google maps zoom level
-  zoom: number = 8;
+  zoom: number = 12;
 
   // initial center position for the map
-  lat: number = 51.673858;
-  lng: number = 7.815982;
+  lat: number = 48.8566;
+  lng: number = 2.3522;
 
   constructor(private markerService: MarkerService) {
   }
@@ -69,10 +69,7 @@ export class MapComponent {
     console.log('map loaded!', m);
 
     this.markerService.getAllMarkers(m).then(markers => {
-      //this.markers = markers;
-      //let mcOptions = {gridSize: 50, maxZoom: 15};
-
-
+      this.markers = markers;
       new MarkerClusterer(m, markers, MarkerClusterOptions.get());
     });
   }
