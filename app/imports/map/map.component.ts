@@ -9,8 +9,9 @@ import {
 } from 'angular2-google-maps/core';
 
 import { StyledMap } from './styled-map.component';
-import { Marker } from './marker';
 
+import { Marker } from './marker';
+import { MarkerClusterOptions } from './markerClusterOptions';
 import { Table } from './model/Table';
 
 import { TableService } from './model/table.service';
@@ -71,34 +72,8 @@ export class MapComponent {
       //this.markers = markers;
       //let mcOptions = {gridSize: 50, maxZoom: 15};
 
-      let path = "node_modules/js-marker-clusterer/images/m";
-      let extension = ".png";
-      let mcOptions = {styles: [{
-          height: 53,
-          url: path + "1" + extension,
-          width: 53
-        },
-        {
-          height: 56,
-          url: path + "2" + extension,
-          width: 56
-        },
-        {
-          height: 66,
-          url: path + "3" + extension,
-          width: 66
-        },
-        {
-          height: 78,
-          url: path + "4" + extension,
-          width: 78
-        },
-        {
-          height: 90,
-          url: path + "5" + extension,
-          width: 90
-      }]};
-      new MarkerClusterer(m, markers, mcOptions);
+
+      new MarkerClusterer(m, markers, MarkerClusterOptions.get());
     });
   }
 }
