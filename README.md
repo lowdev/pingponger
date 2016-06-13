@@ -18,13 +18,6 @@ Thanks to you guys !!!
 - npm start
 - Go to localhost:3000
 
-### Todos
-
- - Ui : Right click : copy
- - UI : Right click : comment
- - UI/Server : Login
- - Server : Save comment
-
 ## License
 
 The MIT License (MIT)
