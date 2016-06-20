@@ -6,7 +6,6 @@ Social network for Street Ping Ponger.
 0.0.1
 
 ### Tech
-Article-Annotater uses a number of open source projects to work properly:
 
 * [Angular2] - HTML enhanced for web apps!
 * [Page] - Html 5 template.
