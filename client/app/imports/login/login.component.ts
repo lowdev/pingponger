@@ -1,11 +1,7 @@
 import { Component, AfterContentInit, ElementRef, Renderer } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { FormBuilder, ControlGroup, Validators } from '@angular/common';
 import { Auth } from 'ng2-ui-auth';
-
-/**
- * Created by Ron on 18/12/2015.
- */
 
 @Component({
     selector: 'login',
