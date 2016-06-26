@@ -9,7 +9,7 @@ import { Auth } from 'ng2-ui-auth';
 
 @Component({
     selector: 'login',
-    templateUrl: 'app/imports/login/login2.html'
+    templateUrl: 'app/imports/login/login.component.html'
 })
 export class LoginComponent implements AfterContentInit {
     form: ControlGroup;
