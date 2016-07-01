@@ -5,7 +5,8 @@ import { Auth } from 'ng2-ui-auth';
 
 @Component({
     selector: 'login',
-    templateUrl: 'app/imports/login/login.component.html'
+    templateUrl: 'app/imports/login/login.component.html',
+    styleUrls: ['app/imports/login/login.component.css']
 })
 export class LoginComponent implements AfterContentInit {
     form: ControlGroup;

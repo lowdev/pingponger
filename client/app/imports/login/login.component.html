@@ -1,37 +1,49 @@
-<div class="row main-container">
-    <div class="center-form panel">
-        <div class="panel-body">
-            <h2 class="text-center">Log in</h2>
-
-            <form (ngSubmit)="login()" [ngFormModel]="form" #loginForm="ngForm">
-                <div class="form-group has-feedback">
-                    <!--[class.has-error]="formEmail.dirty && !formEmail.valid"-->
-                    <input type="text" ngControl="email" #formEmail="ngForm" class="form-control input-lg" [(ngModel)]="user.email" placeholder="Email" autofocus>
-                    <i class="fa form-control-feedback fa-at"></i>
-                    <ng-messages [errors]="formEmail.errors"></ng-messages>
-                </div>
-                <div class="form-group has-feedback">
-                    <!--[class.has-error]="formPassword.dirty && !formPassword.valid"-->
-                    <input type="password" ngControl="password" #formPassword="ngForm" class="form-control input-lg" [(ngModel)]="user.password" placeholder="Password">
-                    <i class="fa form-control-feedback fa-key"></i>
-                    <ng-messages [errors]="formPassword.errors"></ng-messages>
-                </div>
-                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-lg btn-block btn-success">Log in</button>
-                <br>
-                <p class="text-center text-muted" >
-                    <small>Don&apos;t have an account yet?</small>
-                    <a>Sign up</a>
-                </p>
-                <div class="signup-or-separator">
-                    <h6 class="text">or</h6>
-                    <hr>
-                </div>
-            </form>
-
-            <button class="btn btn-block btn-google-plus" (click)="authenticate('google')">
-                <i class="fa fa-google-plus"></i>
-                sign in with Google
-            </button>
-        </div>
+<div class="login-wrapper ">
+  <!-- START Login Background Pic Wrapper-->
+  <div class="bg-pic">
+    <!-- START Background Pic-->
+    <img src="assets/img/login/bg.jpg" data-src="assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg" data-src-retina="assets/img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg" alt="" class="lazy">
+    <!-- END Background Pic-->
+    <!-- START Background Caption-->
+    <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
+      <h2 class="semi-bold text-white">
+			#PlayEverywhere</h2>
+      <p class="small">
+         © Guillohmz
+      </p>
     </div>
+    <!-- END Background Caption-->
+  </div>
+  <!-- END Login Background Pic Wrapper-->
+  <!-- START Login Right Container-->
+  <div class="login-container bg-white">
+    <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
+      <div class="col-sm-3 col-md-2 no-padding">
+        <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="65">
+      </div>
+      <div class="col-sm-9 no-padding m-t-10">
+         <p class="p-t-35">Ping Ponger</p>
+      </div>
+      <button class="btn btn-block btn-google-plus">
+        <span class="ion-social-googleplus"></span>Sign in with Google
+      </button>
+
+      <div class="pull-bottom sm-pull-bottom">
+        <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+          <div class="col-sm-3 col-md-2 no-padding">
+            <img alt="" class="m-t-5" data-src="assets/img/demo/pages_icon.png" data-src-retina="assets/img/demo/pages_icon_2x.png" height="60" src="assets/img/demo/pages_icon.png" width="60">
+          </div>
+          <div class="col-sm-9 no-padding m-t-10">
+            <p>
+              <small>
+                Exclusive only at <a href="http://market.envato.com/">Envato Marketplace</a> Themeforest.
+                Copyright © 2014 REVOX. All Rights Reserved
+						  </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Login Right Container-->
 </div>
