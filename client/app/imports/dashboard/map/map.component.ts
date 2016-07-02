@@ -24,7 +24,7 @@ declare var MarkerClusterer: any;
   selector: 'map',
   directives: [ANGULAR2_GOOGLE_MAPS_DIRECTIVES, StyledMap],
   providers: [MarkerService, TableService],
-  templateUrl: 'app/imports/map/map.component.html'
+  templateUrl: 'app/imports/dashboard/map/map.component.html'
 })
 export class MapComponent {
   map: any;

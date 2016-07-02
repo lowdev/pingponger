@@ -1,12 +1,11 @@
 import { Component, AfterContentInit, provide } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { NG2_UI_AUTH_PROVIDERS, JwtHttp } from 'ng2-ui-auth';
-import { LoginComponent } from '../../imports/login/login.component';
-import { NavigationComponent } from '../../imports/navigation/navigation.component';
-import { MapComponent } from '../../imports/map/map.component';
-import { QuickviewComponent } from '../../imports/quickview/quickview.component';
-import { OverlayComponent } from '../../imports/overlay/overlay.component';
-import { HeaderComponent } from '../../imports/header/header.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { MapComponent } from './map/map.component';
+import { QuickviewComponent } from './quickview/quickview.component';
+import { OverlayComponent } from './overlay/overlay.component';
+import { HeaderComponent } from './header/header.component';
 
 declare var $:any;
 
@@ -18,7 +17,7 @@ const GOOGLE_CLIENT_ID = '******************************.apps.googleusercontent.
   selector: 'dashboard',
   templateUrl: './app/imports/dashboard/dashboard.component.html',
   directives: [
-    LoginComponent, NavigationComponent, MapComponent, QuickviewComponent,
+    NavigationComponent, MapComponent, QuickviewComponent,
     OverlayComponent, HeaderComponent ],
   providers: [
     HTTP_PROVIDERS,
