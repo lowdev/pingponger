@@ -12,7 +12,7 @@ declare var $:any;
 const DEFAULT_POST_HEADER: {[name: string]: string} = {
   'Content-Type': 'application/json'
 };
-const GOOGLE_CLIENT_ID = '******************************.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '642712098499-uqphekumjjgp2idhosahbdlvvs2g4i44.apps.googleusercontent.com';
 @Component({
   selector: 'dashboard',
   templateUrl: './app/imports/dashboard/dashboard.component.html',

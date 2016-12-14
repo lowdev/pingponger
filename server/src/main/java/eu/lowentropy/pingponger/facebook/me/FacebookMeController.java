@@ -1,4 +1,4 @@
-package eu.lowentropy.articleannotater.facebook.me;
+package eu.lowentropy.pingponger.facebook.me;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import eu.lowentropy.articleannotater.facebook.auth.FacebookMeCaller;
 
 @RestController
 public class FacebookMeController {

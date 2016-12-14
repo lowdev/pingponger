@@ -1,4 +1,4 @@
-package eu.lowentropy.articleannotater.facebook.auth;
+package eu.lowentropy.pingponger.facebook.auth;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -6,6 +6,8 @@ import java.net.URISyntaxException;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +22,10 @@ public class AuthController {
 	@Autowired
 	private FacebookOauthCaller oauthCaller;
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(value = "/auth/facebook", method = RequestMethod.POST,
-			produces = "application/json", consumes = "application/json")
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
     public Token authToFacebook(@RequestBody Payload payload) {
 		AccessToken accessToken = oauthCaller.call(getURI(payload));
 		return new Token(accessToken.getAccessToken());

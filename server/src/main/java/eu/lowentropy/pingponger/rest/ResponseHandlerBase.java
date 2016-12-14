@@ -1,4 +1,4 @@
-package eu.lowentropy.articleannotater.rest;
+package eu.lowentropy.pingponger.rest;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

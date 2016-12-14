@@ -1,4 +1,4 @@
-package eu.lowentropy.articleannotater.facebook.auth;
+package eu.lowentropy.pingponger.facebook.auth;
 
 public class Token {
 

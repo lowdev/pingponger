@@ -14,7 +14,7 @@
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
     'angular2-google-maps':       { defaultExtension: 'js' },
-    'ng2-ui-auth':                { main: 'dist/ng2-ui-auth.min.js', defaultExtension: 'js' }
+    'ng2-ui-auth':                { main: 'dist/ng2-ui-auth.js', defaultExtension: 'js' }
   };
   var packageNames = [
     '@angular/common',

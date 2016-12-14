@@ -1,4 +1,4 @@
-package eu.lowentropy.articleannotater.facebook.me;
+package eu.lowentropy.pingponger.facebook.me;
 
 public class FacebookMe {
 	private Long id;

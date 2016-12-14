@@ -28,10 +28,9 @@ export class LoginComponent implements AfterContentInit {
             );
     }
     goToMain() {
-        this.router.navigate(['Main']);
+        this.router.navigate(['dashboard']);
     }
     ngAfterContentInit() {
-        this.renderer.setElementClass(this.element, 'app', true);
         if (this.auth.isAuthenticated()) {
             this.goToMain();
         }
